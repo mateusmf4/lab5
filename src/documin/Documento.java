@@ -41,4 +41,8 @@ public class Documento {
     public void removerElemento(int posicao) {
 
     }
+
+    public int contarElementos() {
+        return elementos.size();
+    }
 }
