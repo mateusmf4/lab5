@@ -10,6 +10,7 @@ public class Documento {
     private String titulo;
     private List<Elemento> elementos = new ArrayList<>();
     private int maxElementos = -1;
+    private boolean podeAtalho = true;
 
     public Documento(String titulo) {
         this.titulo = titulo; 
