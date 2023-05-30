@@ -45,4 +45,29 @@ public class Documento {
     public int contarElementos() {
         return elementos.size();
     }
+
+    private Elemento pegarElemento(int posicao) {
+        if (posicao < 0 || posicao >= elementos.size()) {
+            throw new IndexOutOfBoundsException("Elemento não existe");
+        }
+        return elementos.get(posicao);
+    }
+
+    public String pegarRepresentacaoCompleta(int elementoPosicao) {
+        return pegarElemento(elementoPosicao).getVersaoCompleta(); 
+    }
+
+    public String pegarRepresentacaoResumida(int elementoPosicao) {
+        return pegarElemento(elementoPosicao).getVersaoResumida();
+    }
+
+    public boolean apagarElemento(int posicao) {
+        if (posicao < 0 || posicao >= elementos.size()) return false;
+        elementos.remove(posicao);
+        return true;
+    }
+
+    public String[] exibir() {
+        return null;
+    }
 }

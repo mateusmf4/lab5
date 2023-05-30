@@ -8,7 +8,7 @@ public class Termos extends Elemento {
     private String separador;
     private String[] termos;
 
-    Termos(int prioridade, String valor, String separador, OrdemTermos ordem) {
+    public Termos(int prioridade, String valor, String separador, OrdemTermos ordem) {
         super(prioridade, valor);
         this.separador = separador;
 
