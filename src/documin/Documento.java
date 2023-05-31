@@ -39,10 +39,6 @@ public class Documento {
         Collections.swap(elementos, posicao, posicao + 1);
     }
 
-    public void removerElemento(int posicao) {
-
-    }
-
     public int contarElementos() {
         return elementos.size();
     }
@@ -69,6 +65,12 @@ public class Documento {
     }
 
     public String[] exibir() {
-        return null;
+        ArrayList<String> result = new ArrayList<>();
+        
+        for (Elemento el : elementos) {
+            result.add(el.getVersaoCompleta());
+        }
+
+        return result.toArray(new String[0]);
     }
 }
