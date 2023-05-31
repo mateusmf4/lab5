@@ -6,6 +6,7 @@ import java.util.List;
 
 import documin.elementos.Atalho;
 import documin.elementos.Elemento;
+import documin.elementos.Titulo;
 
 public class Documento {
     private String titulo;
@@ -110,6 +111,17 @@ public class Documento {
 
         for (Elemento el : elementos) {
             if (el.getPrioridade() >= minPrioridade)
+                result.add(el.getVersaoResumida());
+        }
+
+        return result.toArray(new String[0]);
+    }
+
+    public String[] versaoTitulosResumidos() {
+        ArrayList<String> result = new ArrayList<>();
+
+        for (Elemento el : elementos) {
+            if (el instanceof Titulo)
                 result.add(el.getVersaoResumida());
         }
 

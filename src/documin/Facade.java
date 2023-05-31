@@ -62,4 +62,25 @@ public class Facade {
     public void moverParaBaixo(String tituloDoc, int elementoPosicao) {
         controller.moverParaBaixo(tituloDoc, elementoPosicao);
     }
+
+    public int criarVisaoCompleta(String tituloDoc) {
+        return controller.criarVisaoCompleta(tituloDoc);
+    }
+
+    public int criarVisaoResumida(String tituloDoc) {
+        return controller.criarVisaoResumida(tituloDoc);
+    }
+
+    public int criarVisaoPrioritaria(String tituloDoc, int prioridade) {
+        return controller.criarVisaoPrioritaria(tituloDoc, prioridade);
+    }
+
+    public int criarVisaoTitulo(String tituloDoc) {
+        return controller.criarVisaoTitulo(tituloDoc);
+    }
+    
+    public String[] exibirVisao(int visaoId) {
+        return controller.exibirVisao(visaoId);
+    }
+
 }

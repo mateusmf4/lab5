@@ -1,6 +1,8 @@
 package documin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
@@ -9,9 +11,15 @@ import documin.elementos.OrdemTermos;
 import documin.elementos.Termos;
 import documin.elementos.Texto;
 import documin.elementos.Titulo;
+import documin.visao.Visao;
+import documin.visao.VisaoCompleta;
+import documin.visao.VisaoPrioritaria;
+import documin.visao.VisaoResumida;
+import documin.visao.VisaoTitulos;
 
 public class DocumentoController {
     private Map<String, Documento> documentos = new HashMap<>();
+    private List<Visao> visoes = new ArrayList<>();
 
     private void verificarTitulo(String titulo) {
         if (titulo.isBlank()) {
@@ -92,5 +100,32 @@ public class DocumentoController {
 
     public void moverParaBaixo(String tituloDoc, int elementoPosicao) {
         pegarDocumento(tituloDoc).moverElementoPraBaixo(elementoPosicao);
+    }
+
+    private int criarVisao(Visao visao) {
+        visoes.add(visao);
+        return visoes.size() - 1;
+    }
+
+    public int criarVisaoCompleta(String tituloDoc) {
+        return criarVisao(new VisaoCompleta(pegarDocumento(tituloDoc)));
+    }
+
+    public int criarVisaoResumida(String tituloDoc) {
+        return criarVisao(new VisaoResumida(pegarDocumento(tituloDoc)));
+    }
+
+    public int criarVisaoPrioritaria(String tituloDoc, int prioridade) {
+        return criarVisao(new VisaoPrioritaria(pegarDocumento(tituloDoc), prioridade));
+    }
+
+    public int criarVisaoTitulo(String tituloDoc) {
+        return criarVisao(new VisaoTitulos(pegarDocumento(tituloDoc)));
+    }
+    
+    public String[] exibirVisao(int visaoId) {
+        if (visaoId < 0 || visaoId >= visoes.size())
+            throw new IndexOutOfBoundsException("Visão não existe");
+        return visoes.get(visaoId).exibir();
     }
 }
