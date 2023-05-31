@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import documin.elementos.Atalho;
 import documin.elementos.Elemento;
 
 public class Documento {
@@ -27,6 +28,16 @@ public class Documento {
         }
         elementos.add(elemento);
         return elementos.size() - 1;
+    }
+
+    public int adicionarAtalho(Documento documentoRef) {
+        if (!podeAtalho)
+            throw new IllegalArgumentException("Documento já tem atalho");
+        if (!documentoRef.podeAtalho)
+            throw new IllegalArgumentException("Documento já é referenciado");
+        podeAtalho = false;
+        documentoRef.podeAtalho = false;
+        return adicionarElemento(new Atalho(documentoRef));
     }
 
     public void moverElementoPraCima(int posicao) {

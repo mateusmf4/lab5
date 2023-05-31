@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import documin.elementos.Atalho;
 import documin.elementos.Lista;
 import documin.elementos.OrdemTermos;
 import documin.elementos.Termos;
@@ -72,7 +71,7 @@ public class DocumentoController {
     }
 
     public int criarAtalho(String tituloDoc, String tituloDocReferenciado) {
-        return pegarDocumento(tituloDoc).adicionarElemento(new Atalho(pegarDocumento(tituloDocReferenciado)));
+        return pegarDocumento(tituloDoc).adicionarAtalho(pegarDocumento(tituloDocReferenciado));
     }
 
     public String pegarRepresentacaoCompleta(String tituloDoc, int elementoPosicao) {
