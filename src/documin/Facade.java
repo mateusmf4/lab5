@@ -39,6 +39,10 @@ public class Facade {
         return controller.criarTermos(tituloDoc, valorTermos, prioridade, separador, ordem);
     }
 
+    public int criarAtalho(String tituloDoc, String tituloDocReferenciado) {
+        return controller.criarAtalho(tituloDoc, tituloDocReferenciado);
+    }
+
     public String pegarRepresentacaoCompleta(String tituloDoc, int elementoPosicao) {
         return controller.pegarRepresentacaoCompleta(tituloDoc, elementoPosicao);
     }

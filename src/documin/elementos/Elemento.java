@@ -11,5 +11,9 @@ public abstract class Elemento {
 
     public abstract String getVersaoCompleta();
     public abstract String getVersaoResumida();
+
+    public int getPrioridade() {
+        return prioridade;
+    }
 }
 

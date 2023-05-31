@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import documin.elementos.Atalho;
 import documin.elementos.Lista;
 import documin.elementos.OrdemTermos;
 import documin.elementos.Termos;
@@ -54,39 +55,43 @@ public class DocumentoController {
         return pegarDocumento(titulo).exibir();
     }
 
-    int criarTexto(String tituloDoc, String valor, int prioridade) {
+    public int criarTexto(String tituloDoc, String valor, int prioridade) {
         return pegarDocumento(tituloDoc).adicionarElemento(new Texto(prioridade, valor));
     }
 
-    int criarTitulo(String tituloDoc, String valor, int prioridade, int nivel, boolean linkavel) {
+    public int criarTitulo(String tituloDoc, String valor, int prioridade, int nivel, boolean linkavel) {
         return pegarDocumento(tituloDoc).adicionarElemento(new Titulo(prioridade, valor, nivel, linkavel));
     }
 
-    int criarLista(String tituloDoc, String valorLista, int prioridade, String separador, String charLista) {
+    public int criarLista(String tituloDoc, String valorLista, int prioridade, String separador, String charLista) {
         return pegarDocumento(tituloDoc).adicionarElemento(new Lista(prioridade, valorLista, separador, charLista));
     }
 
-    int criarTermos(String tituloDoc, String valorTermos, int prioridade, String separador, String ordem) {
+    public int criarTermos(String tituloDoc, String valorTermos, int prioridade, String separador, String ordem) {
         return pegarDocumento(tituloDoc).adicionarElemento(new Termos(prioridade, valorTermos, separador, OrdemTermos.fromString(ordem)));
     }
 
-    String pegarRepresentacaoCompleta(String tituloDoc, int elementoPosicao) {
+    public int criarAtalho(String tituloDoc, String tituloDocReferenciado) {
+        return pegarDocumento(tituloDoc).adicionarElemento(new Atalho(pegarDocumento(tituloDocReferenciado)));
+    }
+
+    public String pegarRepresentacaoCompleta(String tituloDoc, int elementoPosicao) {
         return pegarDocumento(tituloDoc).pegarRepresentacaoCompleta(elementoPosicao);
     }
 
-    String pegarRepresentacaoResumida(String tituloDoc, int elementoPosicao) {
+    public String pegarRepresentacaoResumida(String tituloDoc, int elementoPosicao) {
         return pegarDocumento(tituloDoc).pegarRepresentacaoResumida(elementoPosicao);
     }
 
-    boolean apagarElemento(String tituloDoc, int elementoPosicao) {
+    public boolean apagarElemento(String tituloDoc, int elementoPosicao) {
         return pegarDocumento(tituloDoc).apagarElemento(elementoPosicao);
     }
 
-    void moverParaCima(String tituloDoc, int elementoPosicao) {
+    public void moverParaCima(String tituloDoc, int elementoPosicao) {
         pegarDocumento(tituloDoc).moverElementoPraCima(elementoPosicao);
     }
 
-    void moverParaBaixo(String tituloDoc, int elementoPosicao) {
+    public void moverParaBaixo(String tituloDoc, int elementoPosicao) {
         pegarDocumento(tituloDoc).moverElementoPraBaixo(elementoPosicao);
     }
 }

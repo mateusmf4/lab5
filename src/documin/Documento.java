@@ -65,10 +65,38 @@ public class Documento {
     }
 
     public String[] exibir() {
-        ArrayList<String> result = new ArrayList<>();
-        
+        return versaoCompletaPrioritaria(0);
+    }
+
+    public int prioridadeMedia() {
+        int sum = 0;
         for (Elemento el : elementos) {
-            result.add(el.getVersaoCompleta());
+            sum += el.getPrioridade();
+        }
+        return sum / elementos.size();
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String[] versaoCompletaPrioritaria(int minPrioridade) {
+        ArrayList<String> result = new ArrayList<>();
+
+        for (Elemento el : elementos) {
+            if (el.getPrioridade() >= minPrioridade)
+                result.add(el.getVersaoCompleta());
+        }
+
+        return result.toArray(new String[0]);
+    }
+
+    public String[] versaoResumidaPrioritaria(int minPrioridade) {
+        ArrayList<String> result = new ArrayList<>();
+
+        for (Elemento el : elementos) {
+            if (el.getPrioridade() >= minPrioridade)
+                result.add(el.getVersaoResumida());
         }
 
         return result.toArray(new String[0]);
