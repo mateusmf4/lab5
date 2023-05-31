@@ -31,6 +31,8 @@ public class Documento {
     }
 
     public int adicionarAtalho(Documento documentoRef) {
+        if (this == documentoRef)
+            throw new IllegalArgumentException("Documento atalho não pode ser sí mesmo");
         if (!podeAtalho)
             throw new IllegalArgumentException("Documento já tem atalho");
         if (!documentoRef.podeAtalho)
@@ -80,6 +82,7 @@ public class Documento {
     }
 
     public int prioridadeMedia() {
+        if (elementos.isEmpty()) return 0;
         int sum = 0;
         for (Elemento el : elementos) {
             sum += el.getPrioridade();
