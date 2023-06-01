@@ -74,8 +74,17 @@ public class Documento {
 
     public boolean apagarElemento(int posicao) {
         if (posicao < 0 || posicao >= elementos.size()) return false;
+        if (elementos.get(posicao) instanceof Atalho) {
+            removerAtalho();
+            ((Atalho) elementos.get(posicao)).remover();
+        }
         elementos.remove(posicao);
         return true;
+    }
+
+    // deve ser somente usado por Atalho... mto tronxo :(((
+    public void removerAtalho() {
+        podeAtalho = true;
     }
 
     public String[] exibir() {

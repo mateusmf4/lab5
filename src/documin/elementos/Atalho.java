@@ -19,4 +19,8 @@ public class Atalho extends Elemento {
     public String getVersaoResumida() {
         return String.join("\n", documento.versaoResumidaPrioritaria(4));
     }
+
+    public void remover() {
+        documento.removerAtalho();
+    }
 }
