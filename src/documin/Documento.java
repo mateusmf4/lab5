@@ -103,7 +103,7 @@ public class Documento {
                 result.add(el.getVersaoCompleta());
         }
 
-        return result.toArray(new String[0]);
+        return Utils.listToArray(result);
     }
 
     public String[] versaoResumidaPrioritaria(int minPrioridade) {
@@ -114,7 +114,7 @@ public class Documento {
                 result.add(el.getVersaoResumida());
         }
 
-        return result.toArray(new String[0]);
+        return Utils.listToArray(result);
     }
 
     public String[] versaoTitulosResumidos() {
@@ -125,6 +125,6 @@ public class Documento {
                 result.add(el.getVersaoResumida());
         }
 
-        return result.toArray(new String[0]);
+        return Utils.listToArray(result);
     }
 }
