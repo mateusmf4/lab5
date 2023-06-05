@@ -12,7 +12,9 @@ public class Documento {
     private String titulo;
     private List<Elemento> elementos = new ArrayList<>();
     private int maxElementos = -1;
-    private boolean podeAtalho = true;
+    private int quantAtalhos = 0;
+    // em quantos atalhos é referenciado
+    private int quantRefAtalho = 0;
 
     public Documento(String titulo) {
         this.titulo = titulo; 
@@ -34,12 +36,12 @@ public class Documento {
     public int adicionarAtalho(Documento documentoRef) {
         if (this == documentoRef)
             throw new IllegalArgumentException("Documento atalho não pode ser sí mesmo");
-        if (!podeAtalho)
-            throw new IllegalArgumentException("Documento já tem atalho");
-        if (!documentoRef.podeAtalho)
-            throw new IllegalArgumentException("Documento já é referenciado");
-        podeAtalho = false;
-        documentoRef.podeAtalho = false;
+        if (quantRefAtalho > 0)
+            throw new IllegalArgumentException("Documento é um atalho e não pode adicionar atalhos");
+        if (documentoRef.quantAtalhos > 0)
+            throw new IllegalArgumentException("Documento referenciado não pode ter atalhos");
+        quantAtalhos++;
+        documentoRef.quantRefAtalho++;
         return adicionarElemento(new Atalho(documentoRef));
     }
 
@@ -74,17 +76,15 @@ public class Documento {
 
     public boolean apagarElemento(int posicao) {
         if (posicao < 0 || posicao >= elementos.size()) return false;
-        if (elementos.get(posicao) instanceof Atalho) {
-            removerAtalho();
-            ((Atalho) elementos.get(posicao)).remover();
+        Elemento el = elementos.get(posicao);
+        if (el instanceof Atalho) {
+            Atalho atalho = (Atalho) el;
+            Documento docRef = atalho.getDocumentoReferenciado();
+            docRef.quantRefAtalho--;
+            quantAtalhos--;
         }
         elementos.remove(posicao);
         return true;
-    }
-
-    // deve ser somente usado por Atalho... mto tronxo :(((
-    public void removerAtalho() {
-        podeAtalho = true;
     }
 
     public String[] exibir() {

@@ -20,7 +20,7 @@ public class Atalho extends Elemento {
         return String.join("\n", documento.versaoResumidaPrioritaria(4));
     }
 
-    public void remover() {
-        documento.removerAtalho();
+    public Documento getDocumentoReferenciado() {
+        return documento;
     }
 }
