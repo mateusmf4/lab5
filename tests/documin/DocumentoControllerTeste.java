@@ -89,9 +89,9 @@ public class DocumentoControllerTeste {
     public void testeVisoes() {
         controller.criarDocumento("Meu Doc");
 
-        assertEquals(0, controller.criarTitulo("Meu Doc", "Um Titulo", 1, 1, true));
-        assertEquals(1, controller.criarTexto("Meu Doc", "Wow incrivel", 1));
-        assertEquals(2, controller.criarTitulo("Meu Doc", "Sub titulo", 1, 3, false));
+        assertEquals(0, controller.criarTitulo("Meu Doc", "Um Titulo", 5, 1, true));
+        assertEquals(1, controller.criarTexto("Meu Doc", "Wow incrivel", 3));
+        assertEquals(2, controller.criarTitulo("Meu Doc", "Sub titulo", 4, 3, false));
 
         int visaoComp = controller.criarVisaoCompleta("Meu Doc");
 
@@ -107,5 +107,26 @@ public class DocumentoControllerTeste {
             "1. Um Titulo",
             "3. Sub titulo",
         }, controller.exibirVisao(visaoTitulo));
+
+        int visaoResumida = controller.criarVisaoResumida("Meu Doc");
+
+        assertArrayEquals(new String[] {
+            "1. Um Titulo",
+            "Wow incrivel",
+            "3. Sub titulo",
+        }, controller.exibirVisao(visaoResumida));
+
+        int visaoPrioritaria4 = controller.criarVisaoPrioritaria("Meu Doc", 4);
+
+        assertArrayEquals(new String[] {
+            "1. Um Titulo -- 1-UMTITULO",
+            "3. Sub titulo",
+        }, controller.exibirVisao(visaoPrioritaria4));
+
+        int visaoPrioritaria5 = controller.criarVisaoPrioritaria("Meu Doc", 5);
+
+        assertArrayEquals(new String[] {
+            "1. Um Titulo -- 1-UMTITULO",
+        }, controller.exibirVisao(visaoPrioritaria5));
     }
 }
