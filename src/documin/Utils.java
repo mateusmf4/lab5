@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.function.Executable;
 
 public class Utils {
-    public static <T extends Object> T[] listToArray(ArrayList<T> arr) {
-        return (T[]) arr.toArray();
+    public static String[] listToArray(ArrayList<String> arr) {
+        return arr.toArray(new String[arr.size()]);
     }
 
     public static <T extends Throwable> void assertThrowsMsg(Class<T> expected, Executable executable, String msg) {

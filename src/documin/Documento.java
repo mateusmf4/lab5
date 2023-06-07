@@ -27,7 +27,7 @@ public class Documento {
 
     public int adicionarElemento(Elemento elemento) {
         if (maxElementos != -1 && elementos.size() >= maxElementos) {
-            throw new IndexOutOfBoundsException("Número maximo de elementos excedido");
+            throw new IllegalStateException("Número maximo de elementos excedido");
         }
         elementos.add(elemento);
         return elementos.size() - 1;
