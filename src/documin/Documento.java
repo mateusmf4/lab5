@@ -92,7 +92,7 @@ public class Documento {
     }
 
     public int prioridadeMedia() {
-        if (elementos.isEmpty()) return 0;
+        if (elementos.isEmpty()) return 1;
         int sum = 0;
         for (Elemento el : elementos) {
             sum += el.getPrioridade();

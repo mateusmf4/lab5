@@ -15,7 +15,7 @@ public class TituloTeste {
 
     @Test
     public void testeNaoLinkavel() {
-        Elemento el = new Titulo(24, "Elementos simples", 3, false);
+        Elemento el = new Titulo(3, "Elementos simples", 3, false);
 
         assertEquals("3. Elementos simples", el.getVersaoCompleta());
         assertEquals("3. Elementos simples", el.getVersaoResumida());

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class TextoTeste {
     @Test
     public void testeSimples() {
-        Elemento el = new Texto(10, "Bom dia");
+        Elemento el = new Texto(2, "Bom dia");
 
         assertEquals("Bom dia", el.getVersaoCompleta());
         assertEquals("Bom dia", el.getVersaoResumida());
