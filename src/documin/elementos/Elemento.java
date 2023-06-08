@@ -1,5 +1,8 @@
 package documin.elementos;
 
+/**
+ * Representa um elemento qualquer do documento.
+ */
 public abstract class Elemento {
     protected int prioridade;
     protected String valor;
@@ -12,7 +15,15 @@ public abstract class Elemento {
         this.valor = valor;
     }
 
+    /**
+     * Retorna a versão completa do elemento, com mais detalhes.
+     * @return Uma string.
+     */
     public abstract String getVersaoCompleta();
+    /**
+     * Retorna a versão resumida do elemento, mais curta.
+     * @return Uma string.
+     */
     public abstract String getVersaoResumida();
 
     public int getPrioridade() {

@@ -2,11 +2,21 @@ package documin.elementos;
 
 import java.util.regex.Pattern;
 
+/**
+ * Representa uma lista de valores, separadas por um caractere
+ */
 public class Lista extends Elemento {
     private String separador;
     private String caractere;
     private String[] palavras;
 
+    /**
+     * Cria uma lista
+     * @param prioridade Deve ser de 1 a 5 incluso.
+     * @param valor Valor do elemento. Deve ser separado pelo _separador_ dado.
+     * @param separador Separador dos valores passados em _valor_
+     * @param caractere Caractere utilizado para a representação completa.
+     */
     public Lista(int prioridade, String valor, String separador, String caractere) {
         super(prioridade, valor);
         this.separador = separador;

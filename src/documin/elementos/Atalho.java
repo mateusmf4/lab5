@@ -2,9 +2,17 @@ package documin.elementos;
 
 import documin.Documento;
 
+/**
+ * Representa um atalho a outro documento
+ */
 public class Atalho extends Elemento {
     private Documento documento;
 
+    /**
+     * Cria um atalho.
+     * A prioridade é escolhida a partir da prioridade media do documento.
+     * @param documento Documento a ser linkado. Não pode conter atalhos.
+     */
     public Atalho(Documento documento) {
         super(documento.prioridadeMedia(), documento.getTitulo());
         this.documento = documento;

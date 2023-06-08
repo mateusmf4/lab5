@@ -2,6 +2,11 @@ package documin.visao;
 
 import documin.Documento;
 
+/**
+ * Uma visão prioritaria mostra todos os elementos de um documento
+ * com uma prioridade maior ou igual do que desejada. Os elementos
+ * são mostrados de forma completa.
+ */
 public class VisaoPrioritaria extends Visao {
     private int prioridade;
 
