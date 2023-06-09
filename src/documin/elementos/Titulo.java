@@ -17,7 +17,7 @@ public class Titulo extends Elemento {
     public Titulo(int prioridade, String valor, int nivel, boolean linkavel) {
         super(prioridade, valor);
         if (nivel < 1 || nivel > 5) {
-            throw new IllegalArgumentException("Nivel deve ser de 1 a 5 incluso");
+            throw new IllegalArgumentException("Nível deve ser de 1 a 5 incluso");
         }
         this.nivel = nivel;
         this.linkavel = linkavel;

@@ -155,4 +155,67 @@ public class DocumentoControllerTeste {
             "Documento é um atalho e não pode adicionar atalhos"
         );
     }
+
+    @Test
+    public void testeTituloInvalido() {
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarDocumento("   "),
+            "Título não pode ser vazio"
+        );
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarDocumento(""),
+            "Título não pode ser vazio"
+        );
+        assertThrowsMsg(
+            NoSuchElementException.class,
+            () -> controller.exibirDocumento("Josefino"),
+            "Documento não encontrado"
+        );
+        controller.criarDocumento("Historia");
+        assertThrowsMsg(
+            NoSuchElementException.class,
+            () -> controller.criarAtalho("Historia", "Josefino"),
+            "Documento não encontrado"
+        );
+    }
+    
+    @Test
+    public void testeElementosInvalidos() {
+        controller.criarDocumento("ola");
+
+        controller.criarTitulo("ola", "bom dia", 1, 1, false);
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarTexto("ola", "bom dia", 0),
+            "Prioridade deve ser de 1 a 5 incluso"
+        );
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarTexto("ola", "bom dia", 6),
+            "Prioridade deve ser de 1 a 5 incluso"
+        );
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarTitulo("ola", "bom dia", 1, 0, false),
+            "Nível deve ser de 1 a 5 incluso"
+        );
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarTitulo("ola", "bom dia", 1, 6, false),
+            "Nível deve ser de 1 a 5 incluso"
+        );
+
+        assertThrowsMsg(
+            IndexOutOfBoundsException.class,
+            () -> controller.pegarRepresentacaoResumida("ola", 1),
+            "Elemento não existe"
+        );
+        assertThrowsMsg(
+            IndexOutOfBoundsException.class,
+            () -> controller.pegarRepresentacaoResumida("ola", -1),
+            "Elemento não existe"
+        );
+    }
 }
