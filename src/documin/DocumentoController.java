@@ -74,6 +74,7 @@ public class DocumentoController {
     }
 
     /**
+     * A quantidade de elementos no documento.
      * @param titulo Titulo do documento.
      * @return A quantidade de elementos no documento.
      */

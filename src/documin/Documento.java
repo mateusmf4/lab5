@@ -91,6 +91,7 @@ public class Documento {
     }
 
     /**
+     * A quantidade de elementos no documento.
      * @return A quantidade de elementos no documento.
      */
     public int contarElementos() {
