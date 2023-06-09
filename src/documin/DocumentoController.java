@@ -17,6 +17,10 @@ import documin.visao.VisaoPrioritaria;
 import documin.visao.VisaoResumida;
 import documin.visao.VisaoTitulos;
 
+/**
+ * Representa a classe principal do sistema documin,
+ * guardando os documentos e as visões sobre os mesmos.
+ */
 public class DocumentoController {
     private Map<String, Documento> documentos = new HashMap<>();
     private List<Visao> visoes = new ArrayList<>();
@@ -50,6 +54,7 @@ public class DocumentoController {
     /**
      * Cria um documento com um titulo e número máximo de elementos.
      * @param titulo Titulo do documento. Não pode ser vazio
+     * @param maxElementos Numero maximo de elementos no documento.
      * @return false se um documento com o mesmo titulo já existe no controller, true se não
      */
     public boolean criarDocumento(String titulo, int maxElementos) {
@@ -112,7 +117,7 @@ public class DocumentoController {
     /**
      * Cria um elemento de lista no documento.
      * @param tituloDoc Titulo do documento.
-     * @param valor Valor do elemento. Deve ser separado pelo _separador_ dado.
+     * @param valorLista Valor do elemento. Deve ser separado pelo _separador_ dado.
      * @param prioridade Prioridade do elemento.
      * @param separador Separador dos valores passados em _valor_
      * @param charLista Caractere utilizado para a representação completa.
@@ -125,7 +130,7 @@ public class DocumentoController {
     /**
      * Cria um elemento de termos no documento.
      * @param tituloDoc Titulo do documento.
-     * @param valor Valor do elemento. Deve ser separado pelo _separador_ dado.
+     * @param valorTermos Valor do elemento. Deve ser separado pelo _separador_ dado.
      * @param prioridade Prioridade do elemento.
      * @param separador Separador dos valores passados em _valor_
      * @param ordem Especifica a ordem para ordernar os valores
@@ -179,7 +184,7 @@ public class DocumentoController {
      * Troca o elemento em uma posição com o elemento acima.
      * Se a posição for 0, não faz nada, pois é o elemento no topo.
      * @param tituloDoc Titulo do documento.
-     * @param posicao Indice do elemento.
+     * @param elementoPosicao Indice do elemento.
      */
     public void moverParaCima(String tituloDoc, int elementoPosicao) {
         pegarDocumento(tituloDoc).moverElementoPraCima(elementoPosicao);
@@ -189,7 +194,7 @@ public class DocumentoController {
      * Troca o elemento em uma posição com o elemento abaixo.
      * Se a posição for o ultimo indice da lista de elementos, não faz nada.
      * @param tituloDoc Titulo do documento.
-     * @param posicao Indice do elemento.
+     * @param elementoPosicao Indice do elemento.
      */
     public void moverParaBaixo(String tituloDoc, int elementoPosicao) {
         pegarDocumento(tituloDoc).moverElementoPraBaixo(elementoPosicao);

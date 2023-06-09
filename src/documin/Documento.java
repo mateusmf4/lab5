@@ -180,7 +180,7 @@ public class Documento {
                 result.add(el.getVersaoCompleta());
         }
 
-        return Utils.listToArray(result);
+        return result.toArray(new String[result.size()]);
     }
 
     /**
@@ -197,7 +197,7 @@ public class Documento {
                 result.add(el.getVersaoResumida());
         }
 
-        return Utils.listToArray(result);
+        return result.toArray(new String[result.size()]);
     }
 
     /**
@@ -213,6 +213,6 @@ public class Documento {
                 result.add(el.getVersaoResumida());
         }
 
-        return Utils.listToArray(result);
+        return result.toArray(new String[result.size()]);
     }
 }

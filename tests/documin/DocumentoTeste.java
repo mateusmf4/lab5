@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
-import static documin.Utils.assertThrowsMsg;
+import static documin.TestUtils.assertThrowsMsg;
 
 public class DocumentoTeste {
     @Test

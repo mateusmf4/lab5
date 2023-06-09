@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static documin.Utils.assertThrowsMsg;
+import static documin.TestUtils.assertThrowsMsg;
 
 public class DocumentoControllerTeste {
     private DocumentoController controller;
