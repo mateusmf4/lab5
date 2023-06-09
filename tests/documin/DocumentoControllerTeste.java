@@ -129,4 +129,30 @@ public class DocumentoControllerTeste {
             "1. Um Titulo -- 1-UMTITULO",
         }, controller.exibirVisao(visaoPrioritaria5));
     }
+
+    @Test
+    public void testeCriarAtalhos() {
+        controller.criarDocumento("Vida Josefino");
+        controller.criarDocumento("Jornada Josefino");
+        controller.criarDocumento("Biografia Josefino");
+        controller.criarDocumento("Meu doggy");
+
+        controller.criarAtalho("Biografia Josefino", "Jornada Josefino");
+        controller.criarAtalho("Vida Josefino", "Jornada Josefino");
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarAtalho("Biografia Josefino", "Vida Josefino"),
+            "Documento referenciado não pode ter atalhos"
+        );
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarAtalho("Biografia Josefino", "Biografia Josefino"),
+            "Documento atalho não pode ser sí mesmo"
+        );
+        assertThrowsMsg(
+            IllegalArgumentException.class,
+            () -> controller.criarAtalho("Jornada Josefino", "Meu doggy"),
+            "Documento é um atalho e não pode adicionar atalhos"
+        );
+    }
 }
