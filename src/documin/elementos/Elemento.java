@@ -1,11 +1,15 @@
 package documin.elementos;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Representa um elemento qualquer do documento.
  */
 public abstract class Elemento {
     protected int prioridade;
     protected String valor;
+    private Map<String, String> propriedades = new HashMap<>();
 
     protected Elemento(int prioridade, String valor) {
         if (prioridade < 1 || prioridade > 5) {
@@ -13,6 +17,10 @@ public abstract class Elemento {
         }
         this.prioridade = prioridade;
         this.valor = valor;
+    }
+
+    protected void addPropriedade(String key, Object valor) {
+        propriedades.put(key, valor.toString());
     }
 
     /**

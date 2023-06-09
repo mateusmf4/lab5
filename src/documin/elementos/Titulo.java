@@ -21,6 +21,9 @@ public class Titulo extends Elemento {
         }
         this.nivel = nivel;
         this.linkavel = linkavel;
+
+        this.addPropriedade("Nível", nivel);
+        this.addPropriedade("Linkável", linkavel);
     }
 
     @Override

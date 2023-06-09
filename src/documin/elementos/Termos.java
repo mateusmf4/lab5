@@ -23,6 +23,9 @@ public class Termos extends Elemento {
         super(prioridade, valor);
         this.separador = separador;
 
+        this.addPropriedade("Separador", separador);
+        this.addPropriedade("Ordem", ordem);
+
         termos = valor.split(Pattern.quote(separador));
         for (int i = 0; i < termos.length; ++i) {
             termos[i] = termos[i].trim();

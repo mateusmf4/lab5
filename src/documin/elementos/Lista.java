@@ -21,6 +21,9 @@ public class Lista extends Elemento {
         super(prioridade, valor);
         this.separador = separador;
         this.caractere = caractere;
+
+        this.addPropriedade("Separador", separador);
+        this.addPropriedade("Caractere de Lista", caractere);
         
         palavras = valor.split(Pattern.quote(separador));
         for (int i = 0; i < palavras.length; ++i) {
