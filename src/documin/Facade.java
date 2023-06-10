@@ -1,7 +1,11 @@
 package documin;
 
 public class Facade {
-    private Documin controller = new Documin();
+    private Documin controller;
+
+    public Facade() {
+        controller = new Documin();
+    }
 
     public boolean criarDocumento(String titulo) {
         return controller.criarDocumento(titulo);
