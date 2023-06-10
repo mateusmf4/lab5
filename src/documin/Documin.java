@@ -21,7 +21,7 @@ import documin.visao.VisaoTitulos;
  * Representa a classe principal do sistema documin,
  * guardando os documentos e as visões sobre os mesmos.
  */
-public class DocumentoController {
+public class Documin {
     private Map<String, Documento> documentos = new HashMap<>();
     private List<Visao> visoes = new ArrayList<>();
 
